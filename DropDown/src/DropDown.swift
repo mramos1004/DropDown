@@ -475,12 +475,13 @@ extension DropDown {
 		let anchorViewMaxY = (anchorView?.windowFrame?.maxY ?? 0)
 		
 		let x = anchorViewX + topOffset.x
-		let y = (anchorViewMaxY + topOffset.y) - tableHeight
+		var y = (anchorViewMaxY + topOffset.y) - tableHeight
 		
 		let windowY = window.bounds.minY + UI.HeightPadding
 		
 		if y < windowY {
 			offscreenHeight = abs(y - windowY)
+			y = windowY
 		}
 		
 		let width = self.width ?? (anchorView?.bounds.width ?? 0) - topOffset.x
